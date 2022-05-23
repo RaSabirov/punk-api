@@ -1,0 +1,74 @@
+.card__item {
+  position: relative;
+  border-radius: 10px;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin: 0;
+  padding: 10px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid #f3f3f3;
+}
+
+.card__item:hover {
+  box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.10);
+  transform: translateY(-10px);
+}
+
+.card__text-container {
+  box-sizing: border-box;
+  padding: 22px 19px 27px 20px;
+  text-align: center;
+  padding: 0;
+}
+
+.card__photo {
+  width: 100%;
+  height: 282px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.card__name {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card__abv {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 29px;
+  color: #000000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 90%;
+}
+
+.card__likebtn {
+  width: 22px;
+  min-height: 19px;
+  background-color: inherit;
+  background: url('../images/like-btn.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+
+}
+
+.card__likebtn:hover {
+  box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+  transform: scale(1.2)
+}
