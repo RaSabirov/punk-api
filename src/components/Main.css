@@ -6,3 +6,31 @@
   margin: 0;
   padding: 0;
 }
+
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.search-block {
+  border: 2px solid #000;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  
+}
+
+.search__img {
+  width: 20px;
+}
+
+.search__input {
+  border: none;
+  min-width: 250px;
+  min-height: 30px;
+  outline: none;
+}

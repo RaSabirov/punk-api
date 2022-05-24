@@ -51,11 +51,11 @@
   max-width: 90%;
 }
 
-.card__likebtn {
+.card__favorite {
   width: 22px;
   min-height: 19px;
   background-color: inherit;
-  background: url('../images/like-btn.svg');
+  background-image: url('../images/unfavorite.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -65,10 +65,13 @@
   top: 20px;
   cursor: pointer;
   transition: 0.5s ease-in-out;
-
 }
 
-.card__likebtn:hover {
+.card__favorite_active {
+  background-image: url('../images/favorite.svg');
+}
+
+.card__favorite:hover {
   box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
   transform: scale(1.2)
 }
