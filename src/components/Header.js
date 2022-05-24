@@ -7,7 +7,7 @@ function Header({ onClickFavoritePopup }) {
     <header className='header'>
       <div className='header__logo-container'>
         <img className='header__logo' src={headerLogo} alt='Логотип пива' />
-        <h2>Tasty beer</h2>
+        <h2 className='header__title'>Tasty beer</h2>
       </div>
       <div className='header__favorite' onClick={onClickFavoritePopup}>
         <button className='header__favorite-btn' type='button' aria-label='кнопка избранное'></button>

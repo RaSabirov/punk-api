@@ -1,2 +1,4 @@
 import React from 'react';
-export const Context = React.createContext();
+const BeerContext = React.createContext(null);
+
+export default BeerContext;

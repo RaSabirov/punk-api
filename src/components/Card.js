@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Card.css';
-// import likeBtn from '../images/like-active-btn.svg';
-// import unlikeBtn from '../images/like-btn.svg';
+import BeerContext from '../context/context';
 
-function Card({ card, onCardClick, onFavoriteBtn }) {
-  const { name, abv, image_url } = card;
-  const [isFavorite, setIsFavorite] = React.useState('');
-  const cardFavoriteClassName = `card__favorite ${isFavorite && 'card__favorite_active'}`;
+function Card({ card, onCardClick, onFavoriteBtn, favorited = false }) {
+  const { name, abv, image_url, id } = card;
+  // const { isAdded, setIsAdded } = React.useContext(BeerContext);
+  const [isAdded, setIsAdded] = React.useState(favorited);
+  const cardFavoriteClassName = `card__favorite ${isAdded && 'card__favorite_active'}`;
 
   function handleClickFavorite() {
-    setIsFavorite(!isFavorite);
-    onFavoriteBtn(card);
+    setIsAdded(!isAdded);
+    onFavoriteBtn(card, { id });
   }
 
   function handleCardClick() {
@@ -25,11 +26,13 @@ function Card({ card, onCardClick, onFavoriteBtn }) {
         aria-label='кнопка фаворита'
         onClick={handleClickFavorite}
       ></button>
-      <img className='card__photo' src={image_url} alt={name} onClick={handleCardClick} />
-      <div className='card__text-container'>
-        <h2 className='card__name'>{name}</h2>
-        <p className='card__abv'>ABV: {abv}%</p>
-      </div>
+      <Link to='/about'>
+        <img className='card__photo' src={image_url} alt={name} onClick={handleCardClick} />
+        <div className='card__text-container'>
+          <h2 className='card__name'>{name}</h2>
+          <p className='card__abv'>ABV: {abv}%</p>
+        </div>
+      </Link>
     </li>
   );
 }

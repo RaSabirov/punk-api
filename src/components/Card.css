@@ -52,8 +52,8 @@
 }
 
 .card__favorite {
-  width: 22px;
-  min-height: 19px;
+  width: 30px;
+  min-height: 30px;
   background-color: inherit;
   background-image: url('../images/unfavorite.svg');
   background-size: contain;
@@ -61,8 +61,8 @@
   background-position: center;
   border: none;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 5px;
+  top: 5px;
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }

@@ -4,10 +4,11 @@ import 'primeflex/primeflex.css';
 import Card from './Card';
 import './Main.css';
 import searchImg from '../images/search.svg';
+import BeerContext from '../context/context';
 
 function Main({ cards, onFavoriteBtn, onCardClick }) {
   const [searchValue, setSearchValue] = useState('');
-
+  const { cartItems } = React.useContext(BeerContext);
   const onChangeSearchInput = (e) => {
     setSearchValue(e.target.value);
   };
@@ -28,7 +29,7 @@ function Main({ cards, onFavoriteBtn, onCardClick }) {
 
         <div className='surface-0 text-center'>
           <div className='mb-3 font-bold text-2xl'>
-            <span className='text-blue-600'>
+            <span className='text-blue-500'>
               {searchValue ? `Поиск по запросу:'${searchValue}'` : 'Список всего ассортимента'}
             </span>
           </div>
@@ -37,7 +38,13 @@ function Main({ cards, onFavoriteBtn, onCardClick }) {
           {cards
             .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
             .map((card) => (
-              <Card key={card.id} card={card} onCardClick={onCardClick} onFavoriteBtn={onFavoriteBtn} />
+              <Card
+                key={card.id}
+                card={card}
+                onCardClick={onCardClick}
+                onFavoriteBtn={onFavoriteBtn}
+                favorited={cartItems.some((i) => i.id === card.id)}
+              />
             ))}
         </ul>
       </section>

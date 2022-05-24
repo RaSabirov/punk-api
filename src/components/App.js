@@ -1,19 +1,25 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { api } from '../utils/Api';
+import BeerContext from '../context/context';
 import Header from './Header';
-import 'primereact/resources/themes/saga-blue/theme.css';
-import 'primeicons/primeicons.css';
 import './App.css';
 import Main from './Main';
-import { api } from '../utils/Api';
+import AboutBeer from '../components/AboutBeer';
 import PopupFavorites from './PopupFavorites';
-// import { Context } from '../context/context';
 
 function App() {
+  const cartFromLocalStorage = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  const [isAdded, setIsAdded] = React.useState(false);
   const [cards, setCards] = React.useState([]);
-  const [items, setItems] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState(cartFromLocalStorage);
   const [isFavoriteOpenPopup, setIsFavoriteOpenPopup] = React.useState(false);
-  const [favoriteItems, setFavoriteItems] = React.useState([]);
-  // const [selectedCard, setSelectedCard] = React.useState(false);
+
+  const contextValue = {
+    cartItems,
+    isAdded,
+    setIsAdded,
+  };
 
   React.useEffect(() => {
     api
@@ -23,6 +29,10 @@ function App() {
       })
       .catch((err) => alert(`Ошибка загрузки данных с сервера: ${err}`));
   }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   function handleCardClick() {
     console.log('click card');
@@ -37,14 +47,26 @@ function App() {
   }
 
   function handleClickToFavoriteBtn(obj) {
-    setFavoriteItems([...favoriteItems], obj);
+    if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+      setCartItems((prev) => prev.filter((item) => Number(item.id) !== obj.id));
+    } else {
+      setCartItems((prev) => [...prev, obj]);
+    }
   }
 
   return (
     <div className='wrapper'>
-      <Header onClickFavoritePopup={handleOpenPopup} />
-      <Main cards={cards} onCardClick={handleCardClick} onFavoriteBtn={handleClickToFavoriteBtn} />
-      <PopupFavorites isOpen={isFavoriteOpenPopup} onClose={handleClosePopup} items={items} />
+      <BeerContext.Provider value={contextValue}>
+        <Header onClickFavoritePopup={handleOpenPopup} />
+        <Routes>
+          <Route
+            path='/'
+            element={<Main cards={cards} onCardClick={handleCardClick} onFavoriteBtn={handleClickToFavoriteBtn} />}
+          />
+          <Route path='about' element={<AboutBeer />} />
+        </Routes>
+        <PopupFavorites isOpen={isFavoriteOpenPopup} onClose={handleClosePopup} items={cartItems} />
+      </BeerContext.Provider>
     </div>
   );
 }
