@@ -6,13 +6,13 @@ import './App.css';
 import Main from './Main';
 import { api } from '../utils/Api';
 import PopupFavorites from './PopupFavorites';
+// import { Context } from '../context/context';
 
 function App() {
   const [cards, setCards] = React.useState([]);
+  const [items, setItems] = React.useState([]);
   const [isFavoriteOpenPopup, setIsFavoriteOpenPopup] = React.useState(false);
   const [favoriteItems, setFavoriteItems] = React.useState([]);
-  // const [isFavorite, setIsFavorite] = React.useState('');
-
   // const [selectedCard, setSelectedCard] = React.useState(false);
 
   React.useEffect(() => {
@@ -38,14 +38,13 @@ function App() {
 
   function handleClickToFavoriteBtn(obj) {
     setFavoriteItems([...favoriteItems], obj);
-    console.log(obj);
   }
 
   return (
     <div className='wrapper'>
       <Header onClickFavoritePopup={handleOpenPopup} />
       <Main cards={cards} onCardClick={handleCardClick} onFavoriteBtn={handleClickToFavoriteBtn} />
-      <PopupFavorites isOpen={isFavoriteOpenPopup} onClose={handleClosePopup} items={favoriteItems} />
+      <PopupFavorites isOpen={isFavoriteOpenPopup} onClose={handleClosePopup} items={items} />
     </div>
   );
 }
