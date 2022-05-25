@@ -1,21 +1,22 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { api } from '../utils/Api';
-import BeerContext from '../context/context';
-import Header from './Header';
+import { api } from '../../utils/Api';
+import BeerContext from '../../context/context';
+import Header from '../Header/Header';
 import './App.css';
-import Main from './Main';
-import AboutBeer from '../components/AboutBeer';
-import PopupFavorites from './PopupFavorites';
+import Main from '../Main/Main';
+import AboutBeer from '../AboutBeer/AboutBeer';
+import PopupFavorites from '../PopupFavorites/PopupFavorites';
 
 function App() {
   const cartFromLocalStorage = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  const selectedCardLocalStorage = JSON.parse(localStorage.getItem('currentBeer') || '[]');
+
   const [isAdded, setIsAdded] = React.useState(false);
   const [cards, setCards] = React.useState([]);
-  // const [cardsInfo, setCardsInfo] = React.useState([]);
   const [cartItems, setCartItems] = React.useState(cartFromLocalStorage);
   const [isFavoriteOpenPopup, setIsFavoriteOpenPopup] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState({});
+  const [selectedCard, setSelectedCard] = React.useState(selectedCardLocalStorage);
 
   const contextValue = {
     cartItems,
@@ -36,9 +37,13 @@ function App() {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // Сохраняем состояние выбранной карточки в localStorage, чтобы при перезагрузке не было пустой информации
+  React.useEffect(() => {
+    localStorage.setItem('currentBeer', JSON.stringify(selectedCard));
+  }, [selectedCard]);
+
   function handleCardClick(card) {
     setSelectedCard(card);
-    console.log('click card');
   }
 
   function handleOpenPopup() {
@@ -66,7 +71,16 @@ function App() {
             path='/'
             element={<Main cards={cards} onCardClick={handleCardClick} onFavoriteBtn={handleClickToFavoriteBtn} />}
           />
-          <Route path='about' element={<AboutBeer card={selectedCard} />} />
+          <Route
+            path='about'
+            element={
+              <AboutBeer
+                card={selectedCard}
+                onFavoriteBtn={handleClickToFavoriteBtn}
+                favorited={cartItems.some((i) => i.id === selectedCard.id)}
+              />
+            }
+          />
         </Routes>
         <PopupFavorites isOpen={isFavoriteOpenPopup} onClose={handleClosePopup} items={cartItems} />
       </BeerContext.Provider>

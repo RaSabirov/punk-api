@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import Card from './Card';
+import Card from '../Card/Card';
 import './Main.css';
-import searchImg from '../images/search.svg';
-import BeerContext from '../context/context';
+import searchImg from '../../images/search.svg';
+import BeerContext from '../../context/context';
 
 function Main({ cards, onFavoriteBtn, onCardClick }) {
   const [searchValue, setSearchValue] = useState('');
@@ -12,6 +12,7 @@ function Main({ cards, onFavoriteBtn, onCardClick }) {
   const onChangeSearchInput = (e) => {
     setSearchValue(e.target.value);
   };
+
   return (
     <main className='content'>
       <section className='cards'>
@@ -26,14 +27,11 @@ function Main({ cards, onFavoriteBtn, onCardClick }) {
             <img className='search__img' src={searchImg} alt='логотип поиска' />
           </div>
         </div>
-
-        <div className='surface-0 text-center'>
-          <div className='mb-3 font-bold text-2xl'>
-            <span className='text-blue-500'>
-              {searchValue ? `Поиск по запросу:'${searchValue}'` : 'Список всего ассортимента'}
-            </span>
-            <p>Кликните на карточку, чтобы открыть детальное описание</p>
-          </div>
+        <div className='search__text-container'>
+          <h3 className='search__title'>
+            {searchValue ? `Поиск по запросу:'${searchValue}'` : 'Список всего ассортимента'}
+          </h3>
+          <p className='search__description'>Кликните на карточку, чтобы открыть детальное описание</p>
         </div>
         <ul className='card'>
           {cards

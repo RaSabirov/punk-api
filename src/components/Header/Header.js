@@ -1,5 +1,5 @@
 import React from 'react';
-import headerLogo from '../images/beer.svg';
+import headerLogo from '../../images/beer.svg';
 import './Header.css';
 
 function Header({ onClickFavoritePopup }) {

@@ -1,0 +1,137 @@
+.beer__home {
+  background-color: inherit;
+  background-image: url('../../images/backbtn.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  margin-left: 30px;
+  padding: 0;
+  width: 70px;
+  transition: ease 0.5s;
+}
+
+
+.beer__home:hover {
+  opacity: 0.6;
+}
+
+.beer__container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.beer__details {
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  border: 3px solid #f3f3f3;
+  border-radius: 10px;
+  position: relative;
+}
+
+.beer__image {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 400px;
+  background-color: inherit;
+  margin-top: 20px;
+}
+
+.beer__text {
+  font-size: 20px;
+}
+
+.beer__description {
+  font-size: 20px;
+  max-width: 400px;
+}
+
+.beer__text_bold {
+  font-weight: bold;
+}
+
+.beer__favorite {
+  width: 50px;
+  min-height: 40px;
+  background-color: inherit;
+  background-image: url('../../images/unfavorite.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  right: 0;
+  transition: 0.5s ease-in-out;
+  border: none;
+}
+
+.beer__favorite_active {
+  background-image: url('../../images/favorite.svg');
+}
+
+.beer__favorite:hover {
+  box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+  transform: scale(1.2)
+}
+
+
+@media screen and (max-width: 860px) {
+  .beer__details {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .beer__details {
+    padding-top: 20px;
+    width: 440px;
+  }
+  .beer__text {
+    font-size: 20px;
+  }
+  .beer__description {
+    font-size: 17px;
+  }
+  .beer__favorite {
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .beer__details {
+    padding-top: 20px;
+    width: 370px;
+  }
+  .beer__image {
+    margin-right: 20px;
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .beer__details {
+    align-items: center;
+    width: 289px;
+  }
+  .beer__image {
+    margin-right: 20px;
+    margin-top: 0px;
+    width: 250px;
+    height: 300px;
+  }
+  .beer__home {
+    margin-bottom: 20px;
+  }
+}
+

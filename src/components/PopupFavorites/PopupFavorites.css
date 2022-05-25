@@ -21,7 +21,7 @@
   left: -30px;
   top: 10px;
   position: absolute;
-  background-image: url('../images/close.svg');
+  background-image: url('../../images/close.svg');
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
@@ -53,6 +53,7 @@
   margin-bottom: 20px;
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .favorite__img {
@@ -78,3 +79,68 @@
   white-space: nowrap;
   overflow: hidden;
 } 
+
+.favorite-btn {
+  width: 30px;
+  min-height: 30px;
+  background-color: inherit;
+  background-image: url('../../images/unfavorite.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transition: 0.5s ease-in-out;
+}
+
+.favorite-btn_active {
+  background-image: url('../../images/favorite.svg');
+}
+
+@media screen and (max-width: 870px) {
+  .favorite__field {
+    width: 300px;
+  }
+  .favorite__img {
+    width: 37px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .favorite__field {
+    width: 300px;
+  }
+  .favorite__img {
+    width: 37px;
+  }
+  .favorite__text {
+    font-size: 13px;
+  } 
+  .favorite-btn {
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .favorite__field {
+    width: 257px;
+  }
+  .favorite__item {
+    flex-direction: column;
+    align-items: center;
+  }
+  .favorite__text-container {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .favorite__field {
+    width: 184px;
+  }
+  .favorite__text {
+    font-size: 10px;
+  } 
+}
