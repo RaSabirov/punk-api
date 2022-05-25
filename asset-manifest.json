@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/punk-api/static/css/main.32dbc173.css",
-    "main.js": "/punk-api/static/js/main.b9130289.js",
+    "main.css": "/punk-api/static/css/main.9419ab45.css",
+    "main.js": "/punk-api/static/js/main.6a867b3f.js",
     "static/js/787.d9aea1f4.chunk.js": "/punk-api/static/js/787.d9aea1f4.chunk.js",
     "static/media/primeicons.svg": "/punk-api/static/media/primeicons.c6e2053303524e39530c.svg",
     "static/media/primeicons.eot": "/punk-api/static/media/primeicons.7fc4d8e224d1ff1b9c62.eot",
@@ -12,14 +12,15 @@
     "static/media/close.svg": "/punk-api/static/media/close.65d84a9d33a59ff6dc80.svg",
     "static/media/search.svg": "/punk-api/static/media/search.17ad253937e70184b55d3f631836a01f.svg",
     "static/media/unfavorite.svg": "/punk-api/static/media/unfavorite.17387ffea1422a757a54.svg",
+    "static/media/backbtn.svg": "/punk-api/static/media/backbtn.75fb4c6c9680b24ce3c9.svg",
     "static/media/favorite.svg": "/punk-api/static/media/favorite.b2028f17a46595d651e1.svg",
     "index.html": "/punk-api/index.html",
-    "main.32dbc173.css.map": "/punk-api/static/css/main.32dbc173.css.map",
-    "main.b9130289.js.map": "/punk-api/static/js/main.b9130289.js.map",
+    "main.9419ab45.css.map": "/punk-api/static/css/main.9419ab45.css.map",
+    "main.6a867b3f.js.map": "/punk-api/static/js/main.6a867b3f.js.map",
     "787.d9aea1f4.chunk.js.map": "/punk-api/static/js/787.d9aea1f4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.32dbc173.css",
-    "static/js/main.b9130289.js"
+    "static/css/main.9419ab45.css",
+    "static/js/main.6a867b3f.js"
   ]
 }
