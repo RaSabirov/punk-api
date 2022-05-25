@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import './AboutBeer.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import BeerContext from '../context/context';
+// import BeerContext from '../context/context';
 
-function AboutBeer() {
-  // const { name, abv, image_url, id } = card;
+function AboutBeer({ card }) {
   // const { isAdded, setIsAdded } = React.useContext(BeerContext);
   // const cardFavoriteClassName = `card__favorite ${isAdded && 'card__favorite_active'}`;
 
@@ -33,26 +32,31 @@ function AboutBeer() {
             aria-label='кнопка фаворита'
             onClick={console.log('click')}
           ></button>
-          <div className='beer__image'></div>
+          <div className='beer__image' style={{ backgroundImage: `url(${card.image_url})` }} />
           <div className='beer__text-container'>
             <h3 className='beer__title'>
-              <span className='beer__text_bold'>Name: </span>Buzz
+              <span className='beer__text_bold'>Name: </span>
+              {card.name}
             </h3>
             <p className='beer__text'>
-              <span className='beer__text_bold'>ABV: </span>4.5%
+              <span className='beer__text_bold'>ABV: </span>
+              {card.abv}%
             </p>
             <p className='beer__text'>
-              <span className='beer__text_bold'>First brewed: </span>09/2007
+              <span className='beer__text_bold'>First brewed: </span>
+              {card.first_brewed}
             </p>
             <p className='beer__text'>
-              <span className='beer__text_bold'>IBU: </span>6
+              <span className='beer__text_bold'>IBU: </span>
+              {card.ibu}
             </p>
             <p className='beer__text'>
-              <span className='beer__text_bold'>EBC: </span>10
+              <span className='beer__text_bold'>EBC: </span>
+              {card.ebc}
             </p>
             <p className='beer__description'>
-              <span className='beer__text_bold'>Description: </span>A light, crisp and bitter IPA brewed with English
-              and American hops. A small batch brewed only once.
+              <span className='beer__text_bold'>Description: </span>
+              {card.description}
             </p>
           </div>
         </div>

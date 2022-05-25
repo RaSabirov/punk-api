@@ -18,6 +18,14 @@ class Api {
       headers: this._headers,
     }).then(this._errorHandler);
   }
+
+  // Получаем карточки с сервера
+  getOneBeer(id) {
+    return fetch(`${this._url}/beers/${id}`, {
+      method: 'GET',
+      headers: this._headers,
+    }).then(this._errorHandler);
+  }
 }
 
 export const api = new Api({

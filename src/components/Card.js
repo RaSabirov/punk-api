@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Card.css';
-import BeerContext from '../context/context';
+// import BeerContext from '../context/context';
 
 function Card({ card, onCardClick, onFavoriteBtn, favorited = false }) {
   const { name, abv, image_url, id } = card;
@@ -19,21 +19,21 @@ function Card({ card, onCardClick, onFavoriteBtn, favorited = false }) {
   }
 
   return (
-    <li className='card__item'>
-      <button
-        className={cardFavoriteClassName}
-        type='button'
-        aria-label='кнопка фаворита'
-        onClick={handleClickFavorite}
-      ></button>
-      <Link to='/about'>
+    <NavLink to={'about/'}>
+      <li className='card__item'>
+        <button
+          className={cardFavoriteClassName}
+          type='button'
+          aria-label='кнопка фаворита'
+          onClick={handleClickFavorite}
+        ></button>
         <img className='card__photo' src={image_url} alt={name} onClick={handleCardClick} />
         <div className='card__text-container'>
           <h2 className='card__name'>{name}</h2>
           <p className='card__abv'>ABV: {abv}%</p>
         </div>
-      </Link>
-    </li>
+      </li>
+    </NavLink>
   );
 }
 

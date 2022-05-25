@@ -32,6 +32,7 @@ function Main({ cards, onFavoriteBtn, onCardClick }) {
             <span className='text-blue-500'>
               {searchValue ? `Поиск по запросу:'${searchValue}'` : 'Список всего ассортимента'}
             </span>
+            <p>Кликните на карточку, чтобы открыть детальное описание</p>
           </div>
         </div>
         <ul className='card'>

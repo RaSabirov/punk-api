@@ -1,6 +1,6 @@
-.beer__home {
-  margin-bottom: 50px;
-}
+/* .beer__home {
+
+} */
 
 .beer__container {
   display: flex;
@@ -21,11 +21,12 @@
 
 .beer__image {
   background-position: center;
-  background-image: url('https://images.punkapi.com/v2/keg.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 300px;
   height: 400px;
+  background-color: inherit;
+  margin-top: 20px;
 }
 
 .beer__text {

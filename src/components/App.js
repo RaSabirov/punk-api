@@ -12,8 +12,10 @@ function App() {
   const cartFromLocalStorage = JSON.parse(localStorage.getItem('cartItems') || '[]');
   const [isAdded, setIsAdded] = React.useState(false);
   const [cards, setCards] = React.useState([]);
+  // const [cardsInfo, setCardsInfo] = React.useState([]);
   const [cartItems, setCartItems] = React.useState(cartFromLocalStorage);
   const [isFavoriteOpenPopup, setIsFavoriteOpenPopup] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   const contextValue = {
     cartItems,
@@ -34,7 +36,8 @@ function App() {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  function handleCardClick() {
+  function handleCardClick(card) {
+    setSelectedCard(card);
     console.log('click card');
   }
 
@@ -63,7 +66,7 @@ function App() {
             path='/'
             element={<Main cards={cards} onCardClick={handleCardClick} onFavoriteBtn={handleClickToFavoriteBtn} />}
           />
-          <Route path='about' element={<AboutBeer />} />
+          <Route path='about' element={<AboutBeer card={selectedCard} />} />
         </Routes>
         <PopupFavorites isOpen={isFavoriteOpenPopup} onClose={handleClosePopup} items={cartItems} />
       </BeerContext.Provider>
